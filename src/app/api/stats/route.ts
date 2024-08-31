@@ -19,11 +19,14 @@ export async function GET(req: NextRequest) {
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&amp;display=swap');
         .card { font-family: 'Inter', sans-serif; }
         .title { font-size: 24px; font-weight: bold; fill: #ffffff; }
-        .stats { font-size: 14px; fill: #ffffff; opacity: 0.8; }
-        .values { font-size: 14px; fill: #ffffff; text-anchor: end; }
+        .stats, .values { font-size: 14px; fill: #ffffff; opacity: 0; }
+        .values { text-anchor: end; }
+        .hix-letter { opacity: 0; }
       </style>
       <rect width="300" height="200" fill="#1c1c1c" rx="10" ry="10"/>
-      <text x="150" y="40" class="title card" text-anchor="middle">HIX</text>
+      <text x="150" y="40" class="title card" text-anchor="middle">
+        <tspan class="hix-letter" id="h">H</tspan><tspan class="hix-letter" id="i" dx="5">I</tspan><tspan class="hix-letter" id="x" dx="5">X</tspan>
+      </text>
       <g class="card">
         <text x="20" y="80" class="stats">Total Stars:</text>
         <text x="20" y="105" class="stats">Total Commits (Last Year):</text>
@@ -39,6 +42,7 @@ export async function GET(req: NextRequest) {
       </g>
     </svg>
     `;
+
 
     return new NextResponse(svg, {
       headers: { 'Content-Type': 'image/svg+xml' },
