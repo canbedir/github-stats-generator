@@ -76,7 +76,7 @@ const GitHubStats = () => {
           totalIssues,
         };
 
-        const statsUrl = `https://hixstats.vercel.app/api/stats?username=${username}`;
+        const statsUrl = `https://hixstats.vercel.app/api/stats?username=${username}&totalStars=${totalStars}&lastYearCommits=${lastYearCommits}&totalPRs=${totalPRs}&totalIssues=${totalIssues}&repoCount=${public_repos}`;
         setStats({ ...statsData, statsUrl });
       } else {
         setStats(null);
@@ -140,7 +140,7 @@ const GitHubStats = () => {
           </pre>
           <p className="mt-2">You can add this link to your GitHub profile.</p>
           <h2 className="text-xl font-bold mt-4 mb-2">Preview:</h2>
-          <img src={stats.statsUrl} alt="GitHub Stats" className="w-full" />
+          <img src={stats.statsUrl} alt="GitHub Stats" className="w-full max-w-[300px] mx-auto" />
         </div>
       )}
     </div>
